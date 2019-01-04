@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <select onChange="updateKey()" id="keySelector">
+        <option value="C" selected>C</option>
+        <option value="F">F</option>
+        <option value="Bb">B♭</option>
+        <option value="Eb">E♭</option>
+        <option value="Ab">A♭</option>
+        <option value="Db">D♭</option>
+        <!-- <option value="keyGb">G♭</option> -->
+        <option value="F#">F♯</option>
+        <option value="B">B</option>
+        <option value="E">E</option>
+        <option value="A">A</option>
+        <option value="D">D</option>
+        <option value="G">G</option>
+    </select>
+
+    <select onChange="updateClef()" id="clefSelector">
+        <option value="treble" selected>Treble Clef</option>
+        <option value="alto">Alto Clef</option>
+        <option value="tenor">Tenor Clef</option>
+        <option value="bass">Bass Clef</option>
+    </select>
+    
+    <select onChange="updateKey()" id="tonalitySelector">
+        <option value="maj" selected>Major</option>
+        <option value="min">Minor</option>
+    </select>
+
+    <div id="staff"></div>
+
+    <script type="text/javascript" src="vexflow.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
