@@ -1,0 +1,28 @@
+.chordChart {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+}
+
+h1, h2, h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.chordCell {
+  width: 100px;
+  height: 80px;
+  border: 1px solid red;
+  text-align: center;
+}
+
+.accidental {
+  color: red;
+  font-size: 0.6em
+}
+
+.superscript {
+  color: red;
+  font-size: 0.6em
+}
