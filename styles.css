@@ -16,6 +16,10 @@ h1, h2, h3 {
   text-align: center;
 }
 
+.SubdominantChordCell {
+  height: 120px;
+}
+
 .accidental {
   color: red;
   font-size: 0.6em

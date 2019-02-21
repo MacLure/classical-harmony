@@ -283,6 +283,38 @@ function showSecondaryDominants() {
 function showNeapolitan6th() {
   document.querySelector(`.N6chord`).innerHTML = flatten(keySignatures[selectedKey][1])+ "maj"
 }
+// it6[0].innerHTML = flatten(keys[selectedKey][5]);
+// it6[1].innerHTML = keys[selectedKey][0];
+// it6[2].innerHTML = keys[selectedKey][0];
+// it6[3].innerHTML = sharpen(keys[selectedKey][3]);
+
+// gr6[0].innerHTML = flatten(keys[selectedKey][5]);
+// gr6[1].innerHTML = keys[selectedKey][0];
+// gr6[2].innerHTML = keys[selectedKey][2];
+// gr6[3].innerHTML = sharpen(keys[selectedKey][3]);
+
+// fr6[0].innerHTML = flatten(keys[selectedKey][5]);
+// fr6[1].innerHTML = keys[selectedKey][0];
+// fr6[2].innerHTML = keys[selectedKey][1];
+// fr6[3].innerHTML = sharpen(keys[selectedKey][3]);
+
+function showAugmentedSixthChords() {
+    document.querySelector(`.it61`).innerHTML = flatten(keySignatures[selectedKey][5])
+    document.querySelector(`.it62`).innerHTML = keySignatures[selectedKey][0]
+    document.querySelector(`.it63`).innerHTML = keySignatures[selectedKey][0]
+    document.querySelector(`.it64`).innerHTML = sharpen(keySignatures[selectedKey][3])
+
+    document.querySelector(`.fr61`).innerHTML = flatten(keySignatures[selectedKey][5])
+    document.querySelector(`.fr62`).innerHTML = keySignatures[selectedKey][0]
+    document.querySelector(`.fr63`).innerHTML = keySignatures[selectedKey][1]
+    document.querySelector(`.fr64`).innerHTML = sharpen(keySignatures[selectedKey][3])
+
+    document.querySelector(`.gr61`).innerHTML = flatten(keySignatures[selectedKey][5])
+    document.querySelector(`.gr62`).innerHTML = keySignatures[selectedKey][0]
+    document.querySelector(`.gr63`).innerHTML = keySignatures[selectedKey][2]
+    document.querySelector(`.gr64`).innerHTML = sharpen(keySignatures[selectedKey][3])
+
+}
 
 
   //   }
@@ -360,6 +392,7 @@ function updateKey() {
   showDiatonicChords()
   showSecondaryDominants()
   showNeapolitan6th()
+  showAugmentedSixthChords()
 }
 
 updateKey()
