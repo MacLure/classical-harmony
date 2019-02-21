@@ -53,7 +53,7 @@ const KeySignatures = {
   "F" : ["F", "G", "A", "B♭", "C", "D", "E"],
   "Bb" : ["B♭", "C", "D", "E♭", "F", "G", "A"],
   "Eb" : ["E♭", "F", "G", "A♭", "B♭", "C", "D"],
-  "Ab" : ["A♭", "B♭", "C", "D", "E♭", "F", "G"],
+  "Ab" : ["A♭", "B♭", "C", "D♭", "E♭", "F", "G"],
   "Db" : ["D♭", "E♭", "F", "G", "A♭", "B♭", "C"],
   "F#" : ["F♯", "G♯", "A♯", "B", "C♯", "D♯", "E♯"],
   "B" : ["B", "C♯", "D♯", "E", "F♯", "G♯", "A♯"],
@@ -66,10 +66,17 @@ const KeySignatures = {
 
 function sharpen(tone) {
   if (tone.length === 1 || tone[tone.length-1] === "♯") {
-    return (tone + `<span class="accidental">♯</span>`)
+    return (tone + `♯`)
   } else if (tone[tone.length-1] === "♭") {
-    return (tone[0] + `<span class="accidental">♮</span>`)
+    return (tone[0] + `♮`)
+  }
+}
 
+function flatten(tone) {
+  if (tone.length === 1 || tone[tone.length-1] === "♭") {
+    return (tone + `♭`)
+  } else if (tone[tone.length-1] === "♯") {
+    return (tone[0] + `♮`)
   }
 }
 
@@ -97,14 +104,25 @@ function showSecondaryDominants() {
     document.querySelector(`.SDchordV7`).innerHTML=null
     document.querySelector(`.SDchordV7`).innerHTML=null
     let Vlocator = 4
+    let VIIlocator = -1
     for (i = 1 ; i <= 5 ; i++) {
       if (KeySignatures[selectedKey][i+Vlocator].length>1) {
         document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator][0] + `<span class="accidental">${KeySignatures[selectedKey][i+Vlocator][1]}</span>` + "maj"
       } else {
         document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator]+"maj"
       }
+      let leadingToneChord = i === 3 ? KeySignatures[selectedKey][i+VIIlocator] : sharpen(KeySignatures[selectedKey][i+VIIlocator])
+      if (leadingToneChord.length>1) {
+        document.querySelector(`.SDchordVII${i+1}`).innerHTML=leadingToneChord[0] + `<span class="accidental">${leadingToneChord.slice(1, leadingToneChord.length)}</span>` + "dim"
+      } else {
+        document.querySelector(`.SDchordVII${i+1}`).innerHTML=KeySignatures[selectedKey][i+VIIlocator]+"dim"
+      }
       if (i >= 2 ) {Vlocator = -3}
     }
+    
+
+
+
 
 
   }
