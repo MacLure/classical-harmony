@@ -9,6 +9,49 @@ h1, h2, h3 {
   margin: 0;
 }
 
+h1 {
+  font-family: arial, sans-serif;
+
+}
+
+.chord {
+  font-family: arial, sans-serif;
+  font-weight: 100;
+  background-color: lightpink
+}
+
+.numeral {
+  font-family: serif;
+  background-color: lightgreen;
+}
+
+.tone {
+  font-family: arial, sans-serif;
+  font-weight: 100;
+  background-color: lightpink
+}
+
+.chordQlty {
+  color: green;
+  font-size: 0.8em;
+  margin-left: 0.1em;
+}
+
+.accidental {
+  display: inline-block;
+  color: red;
+  font-size: 0.6em;
+  transform: translateY(-0.5em)
+}
+
+.superscript {
+  display: inline-block;
+
+  color: red;
+  font-size: 0.6em;
+  transform: translateY(-0.5em)
+}
+
 .chordCell {
   width: 100px;
   height: 60px;
@@ -22,14 +65,4 @@ h1, h2, h3 {
 
 .CMChordCell {
   height: 150px;
-}
-
-.accidental {
-  color: red;
-  font-size: 0.6em
-}
-
-.superscript {
-  color: red;
-  font-size: 0.6em
 }
