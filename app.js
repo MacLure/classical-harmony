@@ -48,7 +48,45 @@ const numerals = {
   "numeral7": {"maj": ["viio", "dim"], "min": ["VII", "maj", "viio", "dim"]},
 }
 
-const KeySignatures = {
+const keySignatures = {
+  "C" : ["C", "D", "E", "F", "G", "A", "B"],
+  "Am" : ["A", "B", "C", "D", "E", "F", "G"],
+  "F" : ["F", "G", "A", "Bb", "C", "D", "E"],
+  "Dm" : ["D", "E", "F", "G", "A", "Bb", "C"],
+  "Bb" : ["Bb", "C", "D", "Eb", "F", "G", "A"],
+  "Gm" : ["G", "A", "Bb", "C", "D", "Eb", "F"],
+  "Eb" : ["Eb", "F", "G", "Ab", "Bb", "C", "D"],
+  "Cm" : ["C", "D", "Eb", "F", "G", "Ab", "Bb"],
+  "Ab" : ["Ab", "Bb", "C", "Db", "Eb", "F", "G"],
+  "Fm" : ["F", "G", "Ab", "Bb", "C", "D", "Eb"],
+  "Db" : ["Db", "Eb", "F", "G", "Ab", "Bb", "C"],
+  Gb : ["D#", "E#", "F#", "G#", "A#", "B", "C#"],
+  "Ebm" : ["Eb", "F", "Gb", "Ab", "Bb", "Cb", "Db"],
+  "Cb" : ["Cb", "Db", "Eb", "Fb", "Gb", "Ab", "Bb"],
+  "Abm" : ["Ab", "Bb", "Cb", "Db", "Eb", "Fb", "Gb"],
+  "G" : ["G", "A", "B", "C", "D", "E", "F#"],
+  "Em" : ["E", "F#", "G", "A", "B", "C", "D"],
+  "D" : ["D", "E", "F#", "G", "A", "B", "C#"],
+  "Bm" : ["B", "C#", "D", "E", "F#", "G", "A"],
+  "A" : ["A", "B", "C#", "D", "E", "F#", "G#"],
+  "F#m" : ["F#", "G#", "A", "B", "C#", "D", "E"],
+  "E" : ["E", "F#", "G#", "A", "B", "C#", "D#"],
+  "C#m" : ["C#", "D#", "E", "F#", "G#", "A", "B"],
+  "B" : ["B", "C#", "D#", "E", "F#", "G#", "A#"],
+  "G#m" : ["C#", "D#", "E", "F#", "G#", "A#", "B"],
+  "F#" : ["F#", "G#", "A#", "B", "C#", "D#", "E#"],
+  "D#m" : ["C#", "D#", "E#", "F#", "G#", "A#", "B"],
+  "C#" : ["C#", "D#", "E#", "F#", "G#", "A#", "B#"],
+  "#Am" : ["A#", "B#", "C#", "D#", "E#", "F#", "G#"],
+  "Bbm" : ["Bb", "C", "Db", "Eb", "F", "G", "Ab"],
+  "Dbm" : ["C#", "D#", "E", "F#", "G#", "A", "B"],
+  "A#" : ["Bb", "C", "D", "Eb", "F", "G", "A"],
+  "G#" : ["Ab", "Bb", "Cb", "Db", "Eb", "Fb", "Gb"],
+  "D#" : ["Eb", "F", "G", "Ab", "Bb", "C", "D"],
+  "E#" : ["F", "G", "A", "Bb", "C", "D", "E"],
+};
+
+const keySignaturesOld = {
   "C" : ["C", "D", "E", "F", "G", "A", "B"],
   "F" : ["F", "G", "A", "B♭", "C", "D", "E"],
   "Bb" : ["B♭", "C", "D", "E♭", "F", "G", "A"],
@@ -61,22 +99,50 @@ const KeySignatures = {
   "A" : ["A", "B", "C♯", "D", "E", "F♯", "G♯"],
   "D" : ["D", "E", "F♯", "G", "A", "B", "C♯"],
   "G" : ["G", "A", "B", "C", "D", "E", "F♯"],
-  
+  "Cm" : ["C", "D", "E♭", "F", "G", "A♭", "B♭"],
+  "Fm" : ["F", "G", "A♭", "B♭", "C", "D", "E♭"],
+  "Bbm" : ["B♭", "C", "D♭", "E♭", "F", "G", "A♭"],
+  "Ebm" : ["E♭", "F", "G♭", "A♭", "B♭", "C♭", "D♭"],
+  "Abm" : ["A♭", "B♭", "C♭", "D♭", "E♭", "F♭", "G♭"],
+  "Dbm" : ["C♯", "D♯", "E", "F♯", "G♯", "A", "B"],
+  // keyGb : ["D♯", "E♯", "F♯", "G♯", "A♯", "B", "C♯"],
+  "F#m" : ["F♯", "G♯", "A", "B", "C♯", "D", "E"],
+  "Bm" : ["B", "C♯", "D", "E", "F♯", "G", "A"],
+  "Em" : ["E", "F♯", "G", "A", "B", "C", "D"],
+  "Am" : ["A", "B", "C", "D", "E", "F", "G"],
+  "Dm" : ["D", "E", "F", "G", "A", "B♭", "C"],
+  "Gm" : ["G", "A", "B♭", "C", "D", "E♭", "F"],
+};
+
+const naturalMinorScales = {
+  Cm : ["C", "D", "E♭", "F", "G", "A♭", "B♭"],
+  Fm : ["F", "G", "A♭", "B♭", "C", "D", "E♭"],
+  Bbm : ["B♭", "C", "D♭", "E♭", "F", "G", "A♭"],
+  Ebm : ["E♭", "F", "G♭", "A♭", "B♭", "C♭", "D♭"],
+  Abm : ["A♭", "B♭", "C♭", "D♭", "E♭", "F♭", "G♭"],
+  Dbm : ["C♯", "D♯", "E", "F♯", "G♯", "A", "B"],
+  // keyGb : ["D♯", "E♯", "F♯", "G♯", "A♯", "B", "C♯"],
+  Fsm : ["F♯", "G♯", "A", "B", "C♯", "D", "E"],
+  Bm : ["B", "C♯", "D", "E", "F♯", "G", "A"],
+  Em : ["E", "F♯", "G", "A", "B", "C", "D"],
+  Am : ["A", "B", "C", "D", "E", "F", "G"],
+  Dm : ["D", "E", "F", "G", "A", "B♭", "C"],
+  Gm : ["G", "A", "B♭", "C", "D", "E♭", "F"],
 };
 
 function sharpen(tone) {
-  if (tone.length === 1 || tone[tone.length-1] === "♯") {
-    return (tone + `♯`)
-  } else if (tone[tone.length-1] === "♭") {
-    return (tone[0] + `♮`)
+  if (tone.length === 1 || tone[tone.length-1] === "#") {
+    return (tone + `#`)
+  } else if (tone[tone.length-1] === "b") {
+    return (tone[0] + `n`)
   }
 }
 
 function flatten(tone) {
-  if (tone.length === 1 || tone[tone.length-1] === "♭") {
-    return (tone + `♭`)
-  } else if (tone[tone.length-1] === "♯") {
-    return (tone[0] + `♮`)
+  if (tone.length === 1 || tone[tone.length-1] === "b") {
+    return (tone + `b`)
+  } else if (tone[tone.length-1] === "#") {
+    return (tone[0] + `n`)
   }
 }
 
@@ -86,140 +152,196 @@ function showKeySignature() {
   stave.setContext(context).draw();
 }
 
-function showSecondaryDominants() {
-  if (selectedTonality === "maj") {
-    document.querySelector(`.SDnumeralV7`).innerHTML=null
-    document.querySelector(`.SDnumeralVII7`).innerHTML=null
-    for (i = 2 ; i <= 6 ; i++) {
-      let numeral = `numeral${i}`
-      if (numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1] === "o") {
-        superscript = numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1]
-        document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`.slice(0, `V/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
-        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
-      } else {
-        document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`
-        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`
-      }
-    }
-    document.querySelector(`.SDchordV7`).innerHTML=null
-    document.querySelector(`.SDchordV7`).innerHTML=null
-    let Vlocator = 4
-    let VIIlocator = -1
-    for (i = 1 ; i <= 5 ; i++) {
-      if (KeySignatures[selectedKey][i+Vlocator].length>1) {
-        document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator][0] + `<span class="accidental">${KeySignatures[selectedKey][i+Vlocator][1]}</span>` + "maj"
-      } else {
-        document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator]+"maj"
-      }
-      let leadingToneChord = i === 3 ? KeySignatures[selectedKey][i+VIIlocator] : sharpen(KeySignatures[selectedKey][i+VIIlocator])
-      if (leadingToneChord.length>1) {
-        document.querySelector(`.SDchordVII${i+1}`).innerHTML=leadingToneChord[0] + `<span class="accidental">${leadingToneChord.slice(1, leadingToneChord.length)}</span>` + "dim"
-      } else {
-        document.querySelector(`.SDchordVII${i+1}`).innerHTML=KeySignatures[selectedKey][i+VIIlocator]+"dim"
-      }
-      if (i >= 2 ) {Vlocator = -3}
-    }
-    
-
-
-
-
-
-  }
-  if (selectedTonality === "min") {
-    document.querySelector(`.SDnumeralV2`).innerHTML=null
-    document.querySelector(`.SDnumeralVII2`).innerHTML=null
-    
-    for (i = 3 ; i <= 7 ; i++) {
-      let numeral = `numeral${i}`
-      if (numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1] === "o") {
-        superscript = numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1]
-        document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`.slice(0, `V/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
-        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
-      } else {
-        document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`
-        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`
-      }
-    }
-    document.querySelector(`.SDchordV2`).innerHTML=null
-    document.querySelector(`.SDchordVII2`).innerHTML=null
-    let Vlocator = 2
-    for (i = 2 ; i <= 6 ; i++) {
-      if (KeySignatures[selectedKey][i+Vlocator].length>1) {
-        document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator][0] + `<span class="accidental">${KeySignatures[selectedKey][i+Vlocator][1]}</span>` + "maj"
-      } else {
-        document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator]+"maj"
-      }
-      if (i >= 4 ) {Vlocator = -5}
-    }
-  }
-}
-
-
-function updateKey() {
+function updateStaff() {
   removeStaff() 
   selectedTonality = tonalitySelector.options[tonalitySelector.selectedIndex].value;
   if (selectedTonality === "min") {
-    if (selectedKey === "Ab") {
-      selectedKey = "B"
-    } else {
-      selectedKey = relativeMinors[keySelector.options[keySelector.selectedIndex].value]
-    }
-    let offset=4
-    for (i = 1 ; i <= Object.keys(numerals).length ; i++) {
-      if (KeySignatures[selectedKey][i+offset].length>1) {
-        document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["min"][1]
-      } else {
-        document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset] + numerals[`numeral${i}`]["min"][1]
-      } if (i === 2) {offset = -3}
-      if (numerals[`numeral${i}`]["min"][0][numerals[`numeral${i}`]["min"][0].length-1] === "o") {
-        superscript = numerals[`numeral${i}`]["min"][0][numerals[`numeral${i}`]["min"][0].length-1]
-        document.querySelector(`.numeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][0].slice(0, numerals[`numeral${i}`]["min"][0].length-1) + `<span class="accidental">${superscript}</span>`
-      } else {
-        document.querySelector(`.numeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][0]
-      }
-    }
-    for (i = 3 ; i <= Object.keys(numerals).length ; i +=2) {
-      if (i=== 7) {
-        let leadingToneChord = KeySignatures[selectedKey][i+offset]
-        document.querySelector(`.HMDC${i}`).innerHTML=sharpen(leadingToneChord) + numerals[`numeral${i}`]["min"][3]
-      }
-      else if (KeySignatures[selectedKey][i+offset].length>1) {
-        document.querySelector(`.HMDC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["min"][3]
-      } else {
-        document.querySelector(`.HMDC${i}`).innerHTML=KeySignatures[selectedKey][i+offset] + numerals[`numeral${i}`]["min"][3]
-      } if (numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1] === "+" || numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1] === "o") {
-        document.querySelector(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][2].slice(0, numerals[`numeral${i}`]["min"][2].length-1)+`<span class="superscript">${numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1]}</span>` 
-      } else {
-        document.querySelector(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][2]
-      }
-    }
-
-
-  } else {
-    selectedKey = keySelector.options[keySelector.selectedIndex].value
-    let offset=-1
-    for (i = 1 ; i <= Object.keys(numerals).length ; i++) {
-      if (KeySignatures[selectedKey][i+offset].length>1) {
-        document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["maj"][1]
-      } else {
-        document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset] + numerals[`numeral${i}`]["maj"][1]
-      } if (i === 7) {offset = 0}
-      if (numerals[`numeral${i}`]["maj"][0][numerals[`numeral${i}`]["maj"][0].length-1] === "o") {
-        superscript = numerals[`numeral${i}`]["maj"][0][numerals[`numeral${i}`]["maj"][0].length-1]
-        document.querySelector(`.numeral${[i]}`).innerHTML=(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["maj"][0].slice(0, numerals[`numeral${i}`]["maj"][0].length-1) + `<span class="accidental">${superscript}</span>`
-      } else {
-        document.querySelector(`.numeral${[i]}`).innerHTML=numerals[`numeral${i}`]["maj"][0]
-      }
-    }
-    for (i = 3 ; i <= Object.keys(numerals).length ; i +=2) {
-    document.querySelector(`.HMDC${i}`).innerHTML=null
-    document.querySelector(`.HMnumeral${[i]}`).innerHTML=null
-    }
+    selectedKey = selectedKey + "m"
+  }
+  if (selectedTonality === "maj") {
+    selectedKey = keySelector.options[keySelector.selectedIndex].value;
   }
   showKeySignature();
-  showSecondaryDominants()
 }
+
+// function showSecondaryDominants() {
+//   if (selectedTonality === "maj") {
+//     document.querySelector(`.SDnumeralV7`).innerHTML=null
+//     document.querySelector(`.SDnumeralVII7`).innerHTML=null
+//     for (i = 2 ; i <= 6 ; i++) {
+//       let numeral = `numeral${i}`
+//       if (numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1] === "o") {
+//         superscript = numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1]
+//         document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`.slice(0, `V/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
+//         document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
+//       } else {
+//         document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`
+//         document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`
+//       }
+//     }
+//     document.querySelector(`.SDchordV7`).innerHTML=null
+//     document.querySelector(`.SDchordV7`).innerHTML=null
+//     let Vlocator = 4
+//     let VIIlocator = -1
+//     for (i = 1 ; i <= 5 ; i++) {
+//       if (KeySignatures[selectedKey][i+Vlocator].length>1) {
+//         document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator][0] + `<span class="accidental">${KeySignatures[selectedKey][i+Vlocator][1]}</span>` + "maj"
+//       } else {
+//         document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator]+"maj"
+//       }
+//       let leadingToneChord = i === 3 ? KeySignatures[selectedKey][i+VIIlocator] : sharpen(KeySignatures[selectedKey][i+VIIlocator])
+//       if (leadingToneChord.length>1) {
+//         document.querySelector(`.SDchordVII${i+1}`).innerHTML=leadingToneChord[0] + `<span class="accidental">${leadingToneChord.slice(1, leadingToneChord.length)}</span>` + "dim"
+//       } else {
+//         document.querySelector(`.SDchordVII${i+1}`).innerHTML=KeySignatures[selectedKey][i+VIIlocator]+"dim"
+//       }
+//       if (i >= 2 ) {Vlocator = -3}
+//     }
+    
+
+//   }
+//   if (selectedTonality === "min") {
+//     document.querySelector(`.SDnumeralV2`).innerHTML=null
+//     document.querySelector(`.SDnumeralVII2`).innerHTML=null
+    
+//     for (i = 3 ; i <= 7 ; i++) {
+//       let numeral = `numeral${i}`
+//       if (numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1] === "o") {
+//         superscript = numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1]
+//         document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`.slice(0, `V/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
+//         document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
+//       } else {
+//         document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`
+//         document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`
+//       }
+//     }
+//     document.querySelector(`.SDchordV2`).innerHTML=null
+//     document.querySelector(`.SDchordVII2`).innerHTML=null
+//     let Vlocator = 2
+//     let VIIlocator = -3
+//     for (i = 2 ; i <= 6 ; i++) {
+//       if (KeySignatures[selectedKey][i+Vlocator].length>1) {
+//         document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator][0] + `<span class="accidental">${KeySignatures[selectedKey][i+Vlocator][1]}</span>` + "maj"
+//       } else {
+//         document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator]+"maj"
+//       }
+//       let leadingToneChord = i === 3 ? KeySignatures[selectedKey][i+VIIlocator] : sharpen(KeySignatures[selectedKey][i+VIIlocator])
+//       if (leadingToneChord.length>1) {
+//         document.querySelector(`.SDchordVII${i+1}`).innerHTML=leadingToneChord[0] + `<span class="accidental">${leadingToneChord.slice(1, leadingToneChord.length)}</span>` + "dim"
+//       } else {
+//         document.querySelector(`.SDchordVII${i+1}`).innerHTML=KeySignatures[selectedKey][i+VIIlocator]+"dim"
+//       }
+//       if (i >= 4 ) {VIIlocator = -2}
+//     }
+//   }
+// }
+
+
+function showDiatonicChords() {
+  for (i = 1 ; i <= keySignatures[selectedKey].length ; i++) {
+    document.querySelector(`.DC${i}`).innerHTML = keySignatures[selectedKey][i-1] + numerals[`numeral${i}`][selectedTonality][1]
+    document.querySelector(`.numeral${i}`).innerHTML = numerals[`numeral${i}`][selectedTonality][0]
+    if (selectedTonality === "min") {
+      if (i === 3 || i === 5 || i === 7) {
+        if (i === 7) {
+          let leadingToneChord = sharpen(keySignatures[selectedKey][i-1])
+          document.querySelector(`.HMDC${i}`).innerHTML = leadingToneChord + numerals[`numeral${i}`][selectedTonality][3]
+        } else {
+          document.querySelector(`.HMDC${i}`).innerHTML = keySignatures[selectedKey][i-1] + numerals[`numeral${i}`][selectedTonality][3]
+        }
+        document.querySelector(`.HMnumeral${i}`).innerHTML = numerals[`numeral${i}`][selectedTonality][2]
+      }
+    }
+    if (selectedTonality === "maj") {
+      document.querySelector(`.HMDC${i}`).innerHTML = null
+      document.querySelector(`.HMnumeral${i}`).innerHTML = null
+    }
+  }
+}
+
+function showSecondaryDominants() {
+  for (i = 2 ; i <= keySignatures[selectedKey].length ; i++) {
+    let tonicizedChord = keySignatures[selectedKey][i-1]
+    document.querySelector(`.SDchordV${i}`).innerHTML = keySignatures[tonicizedChord][4]
+    document.querySelector(`.SDnumeralV${i}`).innerHTML = "V/" + numerals[`numeral${i}`][selectedTonality][0]
+    document.querySelector(`.SDchordVII${i}`).innerHTML = keySignatures[tonicizedChord][6]
+    document.querySelector(`.SDnumeralVII${i}`).innerHTML = `vii<span class="superscript">o</span>/` + numerals[`numeral${i}`][selectedTonality][0]
+  }
+  if (selectedTonality === "maj") {
+    document.querySelector(`.SDchordV7`).innerHTML = null
+    document.querySelector(`.SDnumeralV7`).innerHTML = null
+    document.querySelector(`.SDchordVII7`).innerHTML = null
+    document.querySelector(`.SDnumeralVII7`).innerHTML = null
+  } else if (selectedTonality === "min") {
+    document.querySelector(`.SDchordV2`).innerHTML = null
+    document.querySelector(`.SDnumeralV2`).innerHTML = null
+    document.querySelector(`.SDchordVII2`).innerHTML = null
+    document.querySelector(`.SDnumeralVII2`).innerHTML = null
+  }
+}
+
+function showNeapolitan6th() {
+  document.querySelector(`.N6chord`).innerHTML = flatten(keySignatures[selectedKey][1])+ "maj"
+}
+
+
+  //   }
+  //   let offset=4
+  //   for (i = 1 ; i <= Object.keys(numerals).length ; i++) {
+  //     if (KeySignatures[selectedKey][i+offset].length>1) {
+  //       document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["min"][1]
+  //     } else {
+  //       document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset] + numerals[`numeral${i}`]["min"][1]
+  //     } if (i === 2) {offset = -3}
+  //     if (numerals[`numeral${i}`]["min"][0][numerals[`numeral${i}`]["min"][0].length-1] === "o") {
+  //       superscript = numerals[`numeral${i}`]["min"][0][numerals[`numeral${i}`]["min"][0].length-1]
+  //       document.querySelector(`.numeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][0].slice(0, numerals[`numeral${i}`]["min"][0].length-1) + `<span class="accidental">${superscript}</span>`
+  //     } else {
+  //       document.querySelector(`.numeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][0]
+  //     }
+  //   }
+  //   for (i = 3 ; i <= Object.keys(numerals).length ; i +=2) {
+  //     if (i=== 7) {
+  //       let leadingToneChord = sharpen(KeySignatures[selectedKey][i+offset])
+  //       if (leadingToneChord.length > 1) {
+  //         document.querySelector(`.HMDC${i}`).innerHTML=leadingToneChord[0] + `<span class="accidental">${leadingToneChord.slice(1, leadingToneChord.length)}</span>` + numerals[`numeral${i}`]["min"][3]
+  //       } else {
+  //       document.querySelector(`.HMDC${i}`).innerHTML=leadingToneChord + numerals[`numeral${i}`]["min"][3]
+  //       }
+  //     }
+  //     else if (KeySignatures[selectedKey][i+offset].length>1) {
+  //       document.querySelector(`.HMDC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["min"][3]
+  //     } else {
+  //       document.querySelector(`.HMDC${i}`).innerHTML=KeySignatures[selectedKey][i+offset] + numerals[`numeral${i}`]["min"][3]
+  //     } if (numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1] === "+" || numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1] === "o") {
+  //       document.querySelector(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][2].slice(0, numerals[`numeral${i}`]["min"][2].length-1)+`<span class="superscript">${numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1]}</span>` 
+  //     } else {
+  //       document.querySelector(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][2]
+  //     }
+  //   }
+
+
+  // } else {
+  //   selectedKey = keySelector.options[keySelector.selectedIndex].value
+  //   let offset=-1
+  //   for (i = 1 ; i <= Object.keys(numerals).length ; i++) {
+  //     if (KeySignatures[selectedKey][i+offset].length>1) {
+  //       document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["maj"][1]
+  //     } else {
+  //       document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset] + numerals[`numeral${i}`]["maj"][1]
+  //     } if (i === 7) {offset = 0}
+  //     if (numerals[`numeral${i}`]["maj"][0][numerals[`numeral${i}`]["maj"][0].length-1] === "o") {
+  //       superscript = numerals[`numeral${i}`]["maj"][0][numerals[`numeral${i}`]["maj"][0].length-1]
+  //       document.querySelector(`.numeral${[i]}`).innerHTML=(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["maj"][0].slice(0, numerals[`numeral${i}`]["maj"][0].length-1) + `<span class="accidental">${superscript}</span>`
+  //     } else {
+  //       document.querySelector(`.numeral${[i]}`).innerHTML=numerals[`numeral${i}`]["maj"][0]
+  //     }
+  //   }
+  //   for (i = 3 ; i <= Object.keys(numerals).length ; i +=2) {
+  //   document.querySelector(`.HMDC${i}`).innerHTML=null
+  //   document.querySelector(`.HMnumeral${[i]}`).innerHTML=null
+  //   }
+  // }
 
 function updateClef() {
   removeStaff()
@@ -231,6 +353,13 @@ function removeStaff() {
   while (document.getElementsByTagName("svg")[0].hasChildNodes()) {
     document.getElementsByTagName("svg")[0].removeChild(document.getElementsByTagName("svg")[0].firstChild);
   }
+}
+
+function updateKey() {
+  updateStaff()
+  showDiatonicChords()
+  showSecondaryDominants()
+  showNeapolitan6th()
 }
 
 updateKey()
