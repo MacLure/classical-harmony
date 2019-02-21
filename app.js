@@ -69,6 +69,48 @@ function showKeySignature() {
   stave.setContext(context).draw();
 }
 
+function showSecondaryDominants() {
+  console.log(selectedKey)
+
+  if (selectedTonality === "maj") {
+    document.querySelector(`.SDnumeralV7`).innerHTML=null
+    document.querySelector(`.SDnumeralVII7`).innerHTML=null
+    for (i = 2 ; i <= 6 ; i++) {
+      document.querySelector(`.SDnumeralVII${i}`)
+      let numeral = `numeral${i}`
+      if (numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1] === "o") {
+        superscript = numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1]
+        document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`.slice(0, `V/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
+        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
+
+      } else {
+        document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`
+        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`
+
+      }
+    }
+  }
+  if (selectedTonality === "min") {
+    document.querySelector(`.SDnumeralV2`).innerHTML=null
+    document.querySelector(`.SDnumeralVII2`).innerHTML=null
+    for (i = 3 ; i <= 7 ; i++) {
+      let numeral = `numeral${i}`
+      if (numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1] === "o") {
+        superscript = numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1]
+        document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`.slice(0, `V/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
+        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
+
+      } else {
+        document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`
+        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`
+
+      }
+    }
+  }
+  
+}
+
+
 function updateKey() {
   removeStaff() 
   selectedTonality = tonalitySelector.options[tonalitySelector.selectedIndex].value;
@@ -83,55 +125,22 @@ function updateKey() {
       } if (i === 2) {offset = -3}
       if (numerals[`numeral${i}`]["min"][0][numerals[`numeral${i}`]["min"][0].length-1] === "o") {
         superscript = numerals[`numeral${i}`]["min"][0][numerals[`numeral${i}`]["min"][0].length-1]
-        document.querySelector(`.numeral${[i]}`).innerHTML=(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][0].slice(0, numerals[`numeral${i}`]["min"][0].length-1) + `<span class="accidental">${superscript}</span>`
+        document.querySelector(`.numeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][0].slice(0, numerals[`numeral${i}`]["min"][0].length-1) + `<span class="accidental">${superscript}</span>`
       } else {
         document.querySelector(`.numeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][0]
       }
     }
     for (i = 3 ; i <= Object.keys(numerals).length ; i +=2) {
       if (KeySignatures[selectedKey][i+offset].length>1) {
-        document.querySelector(`.HMDC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["min"][1]
+        document.querySelector(`.HMDC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["min"][3]
       } else {
         document.querySelector(`.HMDC${i}`).innerHTML=KeySignatures[selectedKey][i+offset] + numerals[`numeral${i}`]["min"][3]
       } if (numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1] === "+" || numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1] === "o") {
-        document.querySelector(`.HMnumeral${[i]}`).innerHTML=(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][2].slice(0, numerals[`numeral${i}`]["min"][2].length-1)+`<span class="superscript">${numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1]}</span>` 
+        document.querySelector(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][2].slice(0, numerals[`numeral${i}`]["min"][2].length-1)+`<span class="superscript">${numerals[`numeral${i}`]["min"][2][numerals[`numeral${i}`]["min"][2].length-1]}</span>` 
       } else {
-      document.querySelector(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][2]
+        document.querySelector(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["min"][2]
       }
     }
-
-    // Object.keys(numerals).forEach (
-    //   function (numeral) {
-    //     document.querySelector(`.${[numeral]}`).innerHTML=numerals[numeral]["min"][0]
-    //     document.querySelector(`.${[numeral]}`).innerHTML=numerals[numeral]["min"][0]
-
-    //   }
-    // )
-
-
-    // for (i = 1 ; i < Object.keys(numerals).length+1 ; i++ ) {
-    //   console.log(numerals[("numeral"+i.toString())])
-    //   numerals[("numeral"+i.toString())].innerHTML = Object.keys(numerals)[i]["min"]
-    // }
-
-
-    // let accidental = ("c/3", new VF.Accidental("b"))
-    // stave.setContext(context).draw(accidental);
-
-
-//     var notes = [
-//       new VF.StaveNote(
-//         {clef: selectedClef.toString(), keys: [ "b/4"],
-//           duration: "h" }).
-//         addAccidental(0, new VF.Accidental("b")),
-//       new Vex.Flow.StaveNote({clef: "treble", keys: ["c/2"], duration: "h" })
-//     ];
-//     var voice = new VF.Voice({num_beats: 4,  beat_value: 4});
-
-// voice.addTickables(notes);
-// var formatter = new VF.Formatter().joinVoices([voice]).format([voice], 400);
-
-//     voice.draw(context, stave);
 
 
   } else {
@@ -156,6 +165,7 @@ function updateKey() {
     }
   }
   showKeySignature();
+  showSecondaryDominants()
 }
 
 function updateClef() {
