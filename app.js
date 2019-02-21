@@ -177,6 +177,10 @@ function updateStaff() {
   removeStaff() 
   selectedTonality = tonalitySelector.options[tonalitySelector.selectedIndex].value;
   if (selectedTonality === "min") {
+    selectedKey = keySelector.options[keySelector.selectedIndex].value;
+    if (selectedKey === "Db") {
+      selectedKey = "C#"
+    }
     selectedKey = selectedKey + "m"
   }
   if (selectedTonality === "maj") {

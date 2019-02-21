@@ -1,7 +1,17 @@
+body {
+  background-color: grey
+}
+
 .chordChart {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+}
+
+.top {
+  position: relative;
+  z-index: 1000;
+  background-color: white;
 }
 
 h1, h2, h3 {
@@ -11,7 +21,24 @@ h1, h2, h3 {
 
 h1 {
   font-family: arial, sans-serif;
+  display: inline-block;
+}
 
+.heading {
+  position: relative;
+  z-index: 100;
+
+}
+
+.showHideButton {
+  display: inline-block;
+  width: 20px;
+  height:20px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  background-color: lightgray;
+  cursor: pointer;
+  text-align: center;
 }
 
 .chord {
@@ -65,4 +92,13 @@ h1 {
 
 .CMChordCell {
   height: 150px;
+}
+
+.DCs .SDs .subdominants .CMs{
+  position: relative;
+  transition: 0.5s;
+}
+
+.hidden {
+  display: none;
 }

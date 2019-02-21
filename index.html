@@ -8,6 +8,7 @@
     <title>Classical Harmony</title>
 </head>
 <body>
+    <section class="top">
     <img src="classical_harmony.svg"><br>
     <select onChange="updateKey()" id="keySelector">
         <option value="C" selected>C</option>
@@ -38,255 +39,271 @@
     </select>
     
     <div id="staff"></div>
-
+</section>
     <div class="chords">
         <div class="diatonicChords">
-            <h1>Diatonic Chords</h1>
-            <div class= "chordChart">
-                <div class="chordCell">
-                    <h2 class="chord DC1"></h2>
-                    <h3 class="numeral numeral1"></h3>
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord DC2"></h2>
-                    <h3 class="numeral numeral2"></h3>
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord DC3"></h2>
-                    <h3 class="numeral numeral3"></h3>
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord DC4"></h2>
-                    <h3 class="numeral numeral4"></h3>
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord DC5"></h2>
-                    <h3 class="numeral numeral5"></h3>
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord DC6"></h2>
-                    <h3 class="numeral numeral6"></h3>
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord DC7"></h2>
-                    <h3 class="numeral numeral7"></h3>
-                </div>
+            <div class="heading">
+                <h1>Diatonic Chords</h1>
+                <div class="showHideButton" id="DCshowHideButton">↓</div>
             </div>
+            <div class="DCs">
+                <div class= "chordChart">
+                    <div class="chordCell">
+                        <h2 class="chord DC1"></h2>
+                        <h3 class="numeral numeral1"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord DC2"></h2>
+                        <h3 class="numeral numeral2"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord DC3"></h2>
+                        <h3 class="numeral numeral3"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord DC4"></h2>
+                        <h3 class="numeral numeral4"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord DC5"></h2>
+                        <h3 class="numeral numeral5"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord DC6"></h2>
+                        <h3 class="numeral numeral6"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord DC7"></h2>
+                        <h3 class="numeral numeral7"></h3>
+                    </div>
+                </div>
 
-            <div class= "chordChart">
-                <div class="chordCell">
-                    <h2 class="chord HMDC1"></h2>
-                    <h3 class="numeral HMnumeral1"></h3>
+                <div class= "chordChart">
+                    <div class="chordCell">
+                        <h2 class="chord HMDC1"></h2>
+                        <h3 class="numeral HMnumeral1"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord HMDC2"></h2>
+                        <h3 class="numeral HMnumeral2"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord HMDC3"></h2>
+                        <h3 class="numeral HMnumeral3"></h3>
                 </div>
-                <div class="chordCell">
-                    <h2 class="chord HMDC2"></h2>
-                    <h3 class="numeral HMnumeral2"></h3>
+                    <div class="chordCell">
+                        <h2 class="chord HMDC4"></h2>
+                        <h3 class="numeral HMnumeral4"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord HMDC5"></h2>
+                        <h3 class="numeral HMnumeral5"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord HMDC6"></h2>
+                        <h3 class="numeral HMnumeral6"></h3>
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord HMDC7"></h2>
+                        <h3 class="numeral HMnumeral7"></h3>
                 </div>
-                <div class="chordCell">
-                    <h2 class="chord HMDC3"></h2>
-                    <h3 class="numeral HMnumeral3"></h3>
-               </div>
-                <div class="chordCell">
-                    <h2 class="chord HMDC4"></h2>
-                    <h3 class="numeral HMnumeral4"></h3>
                 </div>
-                <div class="chordCell">
-                    <h2 class="chord HMDC5"></h2>
-                    <h3 class="numeral HMnumeral5"></h3>
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord HMDC6"></h2>
-                    <h3 class="numeral HMnumeral6"></h3>
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord HMDC7"></h2>
-                    <h3 class="numeral HMnumeral7"></h3>
-               </div>
             </div>
         </div>
 
         
         <div class="secondaryRominants">
             <h1>Secondary Dominants</h1>
-            <div class= "chordChart">
-                <div class="chordCell">
-                    <h2></h2>
-                    <h3></h3>                  
+            <div class="showHideButton" id="SDshowHideButton">↓</div>
+            <div class="SDs">
+                <div class= "chordChart">
+                    <div class="chordCell">
+                        <h2></h2>
+                        <h3></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordV2"></h2>
+                        <h3 class="numeral SDnumeralV2"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordV3"></h2>
+                        <h3 class="numeral SDnumeralV3"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordV4"></h2>
+                        <h3 class="numeral SDnumeralV4"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordV5"></h2>
+                        <h3 class="numeral SDnumeralV5"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordV6"></h2>
+                        <h3 class="numeral SDnumeralV6"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordV7"></h2>
+                        <h3 class="numeral SDnumeralV7"></h3>                  
+                    </div>
                 </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordV2"></h2>
-                    <h3 class="numeral SDnumeralV2"></h3>                  
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordV3"></h2>
-                    <h3 class="numeral SDnumeralV3"></h3>                  
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordV4"></h2>
-                    <h3 class="numeral SDnumeralV4"></h3>                  
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordV5"></h2>
-                    <h3 class="numeral SDnumeralV5"></h3>                  
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordV6"></h2>
-                    <h3 class="numeral SDnumeralV6"></h3>                  
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordV7"></h2>
-                    <h3 class="numeral SDnumeralV7"></h3>                  
-                </div>
-            </div>
 
-            <div class= "chordChart">
-                <div class="chordCell">
-                    <h2></h2>
-                    <h3></h3>                
+                <div class= "chordChart">
+                    <div class="chordCell">
+                        <h2></h2>
+                        <h3></h3>                
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordVII2"></h2>
+                        <h3 class="numeral SDnumeralVII2"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordVII3"></h2>
+                        <h3 class="numeral SDnumeralVII3"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordVII4"></h2>
+                        <h3 class="numeral SDnumeralVII4"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordVII5"></h2>
+                        <h3 class="numeral SDnumeralVII5"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordVII6"></h2>
+                        <h3 class="numeral SDnumeralVII6"></h3>                  
+                    </div>
+                    <div class="chordCell">
+                        <h2 class="chord SDchordVII7"></h2>
+                        <h3 class="numeral SDnumeralVII7"></h3>                  
                 </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordVII2"></h2>
-                    <h3 class="numeral SDnumeralVII2"></h3>                  
                 </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordVII3"></h2>
-                    <h3 class="numeral SDnumeralVII3"></h3>                  
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordVII4"></h2>
-                    <h3 class="numeral SDnumeralVII4"></h3>                  
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordVII5"></h2>
-                    <h3 class="numeral SDnumeralVII5"></h3>                  
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordVII6"></h2>
-                    <h3 class="numeral SDnumeralVII6"></h3>                  
-                </div>
-                <div class="chordCell">
-                    <h2 class="chord SDchordVII7"></h2>
-                    <h3 class="numeral SDnumeralVII7"></h3>                  
-               </div>
             </div>
         </div>
 
         <div class="SubdominantSubstitutions">
             <h1>Subdominant Substitutions</h1>
-            <div class= "chordChart">
-                <div class="chordCell SubdominantChordCell">
-                    <h2></h2>
-                    <h3></h3>                  
-                </div>
-                <div class="chordCell SubdominantChordCell">
-                    <h2 class="chord N6chord"></h2>
-                    <h3 class="numeral N6numeral">N<span class="superscript">6</span></h3>                  
-                </div>
-                <div class="chordCell SubdominantChordCell">
-                    <h2></h2>
-                    <h3></h3>                  
-                </div>
-                <div class="chordCell SubdominantChordCell">
-                    <div>
-                        <h3 class="tone it61"></h3>
-                        <h3 class="tone it62"></h3>
-                        <h3 class="tone it63"></h3>
-                        <h3 class="tone it64"></h3>
+            <div class="showHideButton" id="subdominantshowHideButton">↓</div>
+            <div class="subdominants">
+                <div class= "chordChart">
+                    <div class="chordCell SubdominantChordCell">
+                        <h2></h2>
+                        <h3></h3>                  
                     </div>
-                    <h3 class="numeral">It<span class="superscript">+6</span></h3>                  
-                </div>
-                <div class="chordCell SubdominantChordCell">
-                    <div>
-                        <h3 class="tone fr61"></h3>
-                        <h3 class="tone fr62"></h3>
-                        <h3 class="tone fr63"></h3>
-                        <h3 class="tone fr64"></h3>
+                    <div class="chordCell SubdominantChordCell">
+                        <h2 class="chord N6chord"></h2>
+                        <h3 class="numeral N6numeral">N<span class="superscript">6</span></h3>                  
                     </div>
-                    <h3 class="numeral">Fr<span class="superscript">+6</span></h3>                  
-                </div>
-                <div class="chordCell SubdominantChordCell">
-                    <div>
-                        <h3 class="tone gr61"></h3>
-                        <h3 class="tone gr62"></h3>
-                        <h3 class="tone gr63"></h3>
-                        <h3 class="tone gr64"></h3>
+                    <div class="chordCell SubdominantChordCell">
+                        <h2></h2>
+                        <h3></h3>                  
                     </div>
-                    <h3 class=numeral>Gr<span class="superscript">+6</span></h3>                  
-                </div>
-                <div class="chordCell SubdominantChordCell">
-                    <h2></h2>
-                    <h3></h3>                  
+                    <div class="chordCell SubdominantChordCell">
+                        <div>
+                            <h3 class="tone it61"></h3>
+                            <h3 class="tone it62"></h3>
+                            <h3 class="tone it63"></h3>
+                            <h3 class="tone it64"></h3>
+                        </div>
+                        <h3 class="numeral">It<span class="superscript">+6</span></h3>                  
+                    </div>
+                    <div class="chordCell SubdominantChordCell">
+                        <div>
+                            <h3 class="tone fr61"></h3>
+                            <h3 class="tone fr62"></h3>
+                            <h3 class="tone fr63"></h3>
+                            <h3 class="tone fr64"></h3>
+                        </div>
+                        <h3 class="numeral">Fr<span class="superscript">+6</span></h3>                  
+                    </div>
+                    <div class="chordCell SubdominantChordCell">
+                        <div>
+                            <h3 class="tone gr61"></h3>
+                            <h3 class="tone gr62"></h3>
+                            <h3 class="tone gr63"></h3>
+                            <h3 class="tone gr64"></h3>
+                        </div>
+                        <h3 class=numeral>Gr<span class="superscript">+6</span></h3>                  
+                    </div>
+                    <div class="chordCell SubdominantChordCell">
+                        <h2></h2>
+                        <h3></h3>                  
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="ChromaticMediants">
                 <h1>Chromatic Mediants</h1>
-                <div class= "chordChart">
-                    <div class="chordCell CMChordCell">
-                    </div>
-                    <div class="chordCell CMChordCell">
-                        <div>
-                            <h2 class="chord CMSDVchord"></h2>
-                            <h3 class="numeral CMSDVnumeral"></h3>                 
-                        </div> 
-                        <div>
-                            <h2 class="chord CMSDVIIchord"></h2>
-                            <h3 class="numeral CMSDVIInumeral"></h3>                 
-                        </div>                
-                    </div>
-                    <div class="chordCell CMChordCell">
-                        <div>
-                            <h2 class="chord CMchord1"></h2>
-                            <h3 class="numeral CMnumeral1"></h3>                 
+                <div class="showHideButton" id="CMshowHideButton">↓</div>
+                <div class="CMs">
+                    <div class= "chordChart">
+                        <div class="chordCell CMChordCell">
                         </div>
-                        <div>
-                            <h2 class="chord CMchord2"></h2>
-                            <h3 class="numeral CMnumeral2"></h3>                 
-                        </div>
-                        <div>
-                            <h2 class="chord CMchord3"></h2>
-                            <h3 class="numeral CMnumeral3"></h3>                 
-                        </div>
-                    </div>
-                    <div class="chordCell CMChordCell">
-                        <h2></h2>
-                        <h3></h3>                  
-                    </div>
-                    <div class="chordCell CMChordCell">
+                        <div class="chordCell CMChordCell">
                             <div>
-                                <h2 class="chord CSMSDVchord"></h2>
-                                <h3 class="numeral CSMSDVnumeral"></h3>                 
+                                <h2 class="chord CMSDVchord"></h2>
+                                <h3 class="numeral CMSDVnumeral"></h3>                 
                             </div> 
                             <div>
-                                <h2 class="chord CSMSDVIIchord"></h2>
-                                <h3 class="numeral CSMSDVIInumeral"></h3>                 
-                            </div>                 
-                    </div>
-                    <div class="chordCell CMChordCell">
-                        <div>
-                            <h2 class="chord CSMchord1"></h2>
-                            <h3 class="numeral CSMnumeral1"></h3>                 
+                                <h2 class="chord CMSDVIIchord"></h2>
+                                <h3 class="numeral CMSDVIInumeral"></h3>                 
+                            </div>                
                         </div>
-                        <div>
-                            <h2 class="chord CSMchord2"></h2>
-                            <h3 class="numeral CSMnumeral2"></h3>                 
+                        <div class="chordCell CMChordCell">
+                            <div>
+                                <h2 class="chord CMchord1"></h2>
+                                <h3 class="numeral CMnumeral1"></h3>                 
+                            </div>
+                            <div>
+                                <h2 class="chord CMchord2"></h2>
+                                <h3 class="numeral CMnumeral2"></h3>                 
+                            </div>
+                            <div>
+                                <h2 class="chord CMchord3"></h2>
+                                <h3 class="numeral CMnumeral3"></h3>                 
+                            </div>
                         </div>
-                        <div>
-                            <h2 class="chord CSMchord3"></h2>
-                            <h3 class="numeral CSMnumeral3"></h3>                 
-                        </div>                  
-                    </div>
-                    <div class="chordCell CMChordCell">
-                        <h2></h2>
-                        <h3></h3>                  
+                        <div class="chordCell CMChordCell">
+                            <h2></h2>
+                            <h3></h3>                  
+                        </div>
+                        <div class="chordCell CMChordCell">
+                                <div>
+                                    <h2 class="chord CSMSDVchord"></h2>
+                                    <h3 class="numeral CSMSDVnumeral"></h3>                 
+                                </div> 
+                                <div>
+                                    <h2 class="chord CSMSDVIIchord"></h2>
+                                    <h3 class="numeral CSMSDVIInumeral"></h3>                 
+                                </div>                 
+                        </div>
+                        <div class="chordCell CMChordCell">
+                            <div>
+                                <h2 class="chord CSMchord1"></h2>
+                                <h3 class="numeral CSMnumeral1"></h3>                 
+                            </div>
+                            <div>
+                                <h2 class="chord CSMchord2"></h2>
+                                <h3 class="numeral CSMnumeral2"></h3>                 
+                            </div>
+                            <div>
+                                <h2 class="chord CSMchord3"></h2>
+                                <h3 class="numeral CSMnumeral3"></h3>                 
+                            </div>                  
+                        </div>
+                        <div class="chordCell CMChordCell">
+                            <h2></h2>
+                            <h3></h3>                  
+                        </div>
                     </div>
                 </div>
             </div>
 
     </div>
-
+    
     <script type="text/javascript" src="vexflow.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="showHide.js"></script>
+
 </body>
 </html>
