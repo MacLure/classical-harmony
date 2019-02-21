@@ -283,20 +283,6 @@ function showSecondaryDominants() {
 function showNeapolitan6th() {
   document.querySelector(`.N6chord`).innerHTML = flatten(keySignatures[selectedKey][1])+ "maj"
 }
-// it6[0].innerHTML = flatten(keys[selectedKey][5]);
-// it6[1].innerHTML = keys[selectedKey][0];
-// it6[2].innerHTML = keys[selectedKey][0];
-// it6[3].innerHTML = sharpen(keys[selectedKey][3]);
-
-// gr6[0].innerHTML = flatten(keys[selectedKey][5]);
-// gr6[1].innerHTML = keys[selectedKey][0];
-// gr6[2].innerHTML = keys[selectedKey][2];
-// gr6[3].innerHTML = sharpen(keys[selectedKey][3]);
-
-// fr6[0].innerHTML = flatten(keys[selectedKey][5]);
-// fr6[1].innerHTML = keys[selectedKey][0];
-// fr6[2].innerHTML = keys[selectedKey][1];
-// fr6[3].innerHTML = sharpen(keys[selectedKey][3]);
 
 function showAugmentedSixthChords() {
     document.querySelector(`.it61`).innerHTML = flatten(keySignatures[selectedKey][5])
@@ -313,9 +299,40 @@ function showAugmentedSixthChords() {
     document.querySelector(`.gr62`).innerHTML = keySignatures[selectedKey][0]
     document.querySelector(`.gr63`).innerHTML = keySignatures[selectedKey][2]
     document.querySelector(`.gr64`).innerHTML = sharpen(keySignatures[selectedKey][3])
-
 }
 
+function showChromaticMediants() {
+  if (selectedTonality === "maj") {
+    document.querySelector(`.CMchord1`).innerHTML = keySignatures[selectedKey][2] + "maj"
+    document.querySelector(`.CMnumeral1`).innerHTML = "III"
+    document.querySelector(`.CMchord2`).innerHTML = flatten(keySignatures[selectedKey][2]) + "min"
+    document.querySelector(`.CMnumeral2`).innerHTML = `<span class="accidental">♭</span>iii`
+    document.querySelector(`.CMchord3`).innerHTML = flatten(keySignatures[selectedKey][2]) + "maj"
+    document.querySelector(`.CMnumeral3`).innerHTML = `<span class="accidental">♭</span>III`
+  
+    document.querySelector(`.CSMchord1`).innerHTML = keySignatures[selectedKey][5] + "maj"
+    document.querySelector(`.CSMnumeral1`).innerHTML = "VI"
+    document.querySelector(`.CSMchord2`).innerHTML = flatten(keySignatures[selectedKey][5]) + "min"
+    document.querySelector(`.CSMnumeral2`).innerHTML = `<span class="accidental">♭</span>vi`
+    document.querySelector(`.CSMchord3`).innerHTML = flatten(keySignatures[selectedKey][5]) + "maj"
+    document.querySelector(`.CSMnumeral3`).innerHTML = `<span class="accidental">♭</span>VI`  
+  }
+  if (selectedTonality === "min") {
+    document.querySelector(`.CMchord1`).innerHTML = keySignatures[selectedKey][2] + "min"
+    document.querySelector(`.CMnumeral1`).innerHTML = "iii"
+    document.querySelector(`.CMchord2`).innerHTML = sharpen(keySignatures[selectedKey][2]) + "maj"
+    document.querySelector(`.CMnumeral2`).innerHTML = `<span class="accidental">♯</span>III`
+    document.querySelector(`.CMchord3`).innerHTML = sharpen(keySignatures[selectedKey][2]) + "min"
+    document.querySelector(`.CMnumeral3`).innerHTML = `<span class="accidental">♯</span>iii`
+  
+    document.querySelector(`.CSMchord1`).innerHTML = keySignatures[selectedKey][5] + "maj"
+    document.querySelector(`.CSMnumeral1`).innerHTML = "vi"
+    document.querySelector(`.CSMchord2`).innerHTML = sharpen(keySignatures[selectedKey][5]) + "maj"
+    document.querySelector(`.CSMnumeral2`).innerHTML = `<span class="accidental">♯</span>VI`
+    document.querySelector(`.CSMchord3`).innerHTML = sharpen(keySignatures[selectedKey][5]) + "min"
+    document.querySelector(`.CSMnumeral3`).innerHTML = `<span class="accidental">♯</span>vi`  
+  }
+}
 
   //   }
   //   let offset=4
@@ -393,6 +410,7 @@ function updateKey() {
   showSecondaryDominants()
   showNeapolitan6th()
   showAugmentedSixthChords()
+  showChromaticMediants()
 }
 
 updateKey()
