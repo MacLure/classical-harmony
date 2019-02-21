@@ -262,9 +262,9 @@ function showDiatonicChords() {
 function showSecondaryDominants() {
   for (i = 2 ; i <= keySignatures[selectedKey].length ; i++) {
     let tonicizedChord = keySignatures[selectedKey][i-1]
-    document.querySelector(`.SDchordV${i}`).innerHTML = keySignatures[tonicizedChord][4]
+    document.querySelector(`.SDchordV${i}`).innerHTML = keySignatures[tonicizedChord][4] + "maj"
     document.querySelector(`.SDnumeralV${i}`).innerHTML = "V/" + numerals[`numeral${i}`][selectedTonality][0]
-    document.querySelector(`.SDchordVII${i}`).innerHTML = keySignatures[tonicizedChord][6]
+    document.querySelector(`.SDchordVII${i}`).innerHTML = keySignatures[tonicizedChord][6] + "dim"
     document.querySelector(`.SDnumeralVII${i}`).innerHTML = `vii<span class="superscript">o</span>/` + numerals[`numeral${i}`][selectedTonality][0]
   }
   if (selectedTonality === "maj") {
@@ -325,12 +325,37 @@ function showChromaticMediants() {
     document.querySelector(`.CMchord3`).innerHTML = sharpen(keySignatures[selectedKey][2]) + "min"
     document.querySelector(`.CMnumeral3`).innerHTML = `<span class="accidental">♯</span>iii`
   
-    document.querySelector(`.CSMchord1`).innerHTML = keySignatures[selectedKey][5] + "maj"
+    document.querySelector(`.CSMchord1`).innerHTML = keySignatures[selectedKey][5] + "min"
     document.querySelector(`.CSMnumeral1`).innerHTML = "vi"
     document.querySelector(`.CSMchord2`).innerHTML = sharpen(keySignatures[selectedKey][5]) + "maj"
     document.querySelector(`.CSMnumeral2`).innerHTML = `<span class="accidental">♯</span>VI`
     document.querySelector(`.CSMchord3`).innerHTML = sharpen(keySignatures[selectedKey][5]) + "min"
     document.querySelector(`.CSMnumeral3`).innerHTML = `<span class="accidental">♯</span>vi`  
+  }
+}
+
+function showChromaticMediantsSDs() {
+  if (selectedTonality === "maj") {
+    document.querySelector(`.CMSDVchord`).innerHTML = flatten(keySignatures[selectedKey][6]) + "maj"
+    document.querySelector(`.CMSDVnumeral`).innerHTML = `V/<span class="accidental">♭</span>III`
+    document.querySelector(`.CMSDVIIchord`).innerHTML = sharpen(keySignatures[selectedKey][1]) + "dim"
+    document.querySelector(`.CMSDVIInumeral`).innerHTML = `vii<span class="superscript">o</span>/<span class="accidental">♭</span>III`
+  
+    document.querySelector(`.CSMSDVchord`).innerHTML = flatten(keySignatures[selectedKey][2]) + "maj"
+    document.querySelector(`.CSMSDVnumeral`).innerHTML = `V/<span class="accidental">♭</span>VI`
+    document.querySelector(`.CSMSDVIIchord`).innerHTML = sharpen(keySignatures[selectedKey][4]) + "dim"
+    document.querySelector(`.CSMSDVIInumeral`).innerHTML = `vii<span class="superscript">o</span>/<span class="accidental">♭</span>VI`  
+  }
+  if (selectedTonality === "min") {
+    document.querySelector(`.CMSDVchord`).innerHTML = sharpen(keySignatures[selectedKey][6]) + "maj"
+    document.querySelector(`.CMSDVnumeral`).innerHTML = `V/<span class="accidental">♯</span>III`
+    document.querySelector(`.CMSDVIIchord`).innerHTML = flatten(keySignatures[selectedKey][1]) + "dim"
+    document.querySelector(`.CMSDVIInumeral`).innerHTML = `vii<span class="superscript">o</span>/<span class="accidental">♯</span>III`
+  
+    document.querySelector(`.CSMSDVchord`).innerHTML = sharpen(keySignatures[selectedKey][2]) + "maj"
+    document.querySelector(`.CSMSDVnumeral`).innerHTML = `V/<span class="accidental">♯</span>VI`
+    document.querySelector(`.CSMSDVIIchord`).innerHTML = sharpen(keySignatures[selectedKey][4]) + "dim"
+    document.querySelector(`.CSMSDVIInumeral`).innerHTML = `vii<span class="superscript">o</span>/<span class="accidental">♯</span>VI`  
   }
 }
 
@@ -411,6 +436,7 @@ function updateKey() {
   showNeapolitan6th()
   showAugmentedSixthChords()
   showChromaticMediants()
+  showChromaticMediantsSDs()
 }
 
 updateKey()

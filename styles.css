@@ -20,6 +20,10 @@ h1, h2, h3 {
   height: 120px;
 }
 
+.CMChordCell {
+  height: 150px;
+}
+
 .accidental {
   color: red;
   font-size: 0.6em
