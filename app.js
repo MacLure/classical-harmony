@@ -61,7 +61,17 @@ const KeySignatures = {
   "A" : ["A", "B", "C♯", "D", "E", "F♯", "G♯"],
   "D" : ["D", "E", "F♯", "G", "A", "B", "C♯"],
   "G" : ["G", "A", "B", "C", "D", "E", "F♯"],
+  
 };
+
+function sharpen(tone) {
+  if (tone.length === 1 || tone[tone.length-1] === "♯") {
+    return (tone + `<span class="accidental">♯</span>`)
+  } else if (tone[tone.length-1] === "♭") {
+    return (tone[0] + `<span class="accidental">♮</span>`)
+
+  }
+}
 
 function showKeySignature() {
   stave.setClef(selectedClef.toString())
@@ -70,44 +80,61 @@ function showKeySignature() {
 }
 
 function showSecondaryDominants() {
-  console.log(selectedKey)
-
   if (selectedTonality === "maj") {
     document.querySelector(`.SDnumeralV7`).innerHTML=null
     document.querySelector(`.SDnumeralVII7`).innerHTML=null
     for (i = 2 ; i <= 6 ; i++) {
-      document.querySelector(`.SDnumeralVII${i}`)
       let numeral = `numeral${i}`
       if (numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1] === "o") {
         superscript = numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1]
         document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`.slice(0, `V/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
-        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
-
+        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
       } else {
         document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`
-        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`
-
+        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`
       }
     }
+    document.querySelector(`.SDchordV7`).innerHTML=null
+    document.querySelector(`.SDchordV7`).innerHTML=null
+    let Vlocator = 4
+    for (i = 1 ; i <= 5 ; i++) {
+      if (KeySignatures[selectedKey][i+Vlocator].length>1) {
+        document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator][0] + `<span class="accidental">${KeySignatures[selectedKey][i+Vlocator][1]}</span>` + "maj"
+      } else {
+        document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator]+"maj"
+      }
+      if (i >= 2 ) {Vlocator = -3}
+    }
+
+
   }
   if (selectedTonality === "min") {
     document.querySelector(`.SDnumeralV2`).innerHTML=null
     document.querySelector(`.SDnumeralVII2`).innerHTML=null
+    
     for (i = 3 ; i <= 7 ; i++) {
       let numeral = `numeral${i}`
       if (numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1] === "o") {
         superscript = numerals[numeral][selectedTonality][0][numerals[numeral][selectedTonality][0].length-1]
         document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`.slice(0, `V/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
-        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
-
+        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`.slice(0, `vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`.length-1) + `<span class="accidental">${superscript}</span>`
       } else {
         document.querySelector(`.SDnumeralV${i}`).innerHTML=`V/${numerals[numeral][selectedTonality][0]}`
-        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="accidental">o</span>/${numerals[numeral][selectedTonality][0]}`
-
+        document.querySelector(`.SDnumeralVII${i}`).innerHTML=`vii<span class="superscript">o</span>/${numerals[numeral][selectedTonality][0]}`
       }
     }
+    document.querySelector(`.SDchordV2`).innerHTML=null
+    document.querySelector(`.SDchordVII2`).innerHTML=null
+    let Vlocator = 2
+    for (i = 2 ; i <= 6 ; i++) {
+      if (KeySignatures[selectedKey][i+Vlocator].length>1) {
+        document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator][0] + `<span class="accidental">${KeySignatures[selectedKey][i+Vlocator][1]}</span>` + "maj"
+      } else {
+        document.querySelector(`.SDchordV${i+1}`).innerHTML=KeySignatures[selectedKey][i+Vlocator]+"maj"
+      }
+      if (i >= 4 ) {Vlocator = -5}
+    }
   }
-  
 }
 
 
@@ -115,7 +142,11 @@ function updateKey() {
   removeStaff() 
   selectedTonality = tonalitySelector.options[tonalitySelector.selectedIndex].value;
   if (selectedTonality === "min") {
-    selectedKey = relativeMinors[keySelector.options[keySelector.selectedIndex].value]
+    if (selectedKey === "Ab") {
+      selectedKey = "B"
+    } else {
+      selectedKey = relativeMinors[keySelector.options[keySelector.selectedIndex].value]
+    }
     let offset=4
     for (i = 1 ; i <= Object.keys(numerals).length ; i++) {
       if (KeySignatures[selectedKey][i+offset].length>1) {
@@ -131,7 +162,11 @@ function updateKey() {
       }
     }
     for (i = 3 ; i <= Object.keys(numerals).length ; i +=2) {
-      if (KeySignatures[selectedKey][i+offset].length>1) {
+      if (i=== 7) {
+        let leadingToneChord = KeySignatures[selectedKey][i+offset]
+        document.querySelector(`.HMDC${i}`).innerHTML=sharpen(leadingToneChord) + numerals[`numeral${i}`]["min"][3]
+      }
+      else if (KeySignatures[selectedKey][i+offset].length>1) {
         document.querySelector(`.HMDC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["min"][3]
       } else {
         document.querySelector(`.HMDC${i}`).innerHTML=KeySignatures[selectedKey][i+offset] + numerals[`numeral${i}`]["min"][3]
@@ -144,14 +179,14 @@ function updateKey() {
 
 
   } else {
-    selectedKey = relativeMinors[keySelector.options[keySelector.selectedIndex].value]
-    let offset=4
+    selectedKey = keySelector.options[keySelector.selectedIndex].value
+    let offset=-1
     for (i = 1 ; i <= Object.keys(numerals).length ; i++) {
       if (KeySignatures[selectedKey][i+offset].length>1) {
         document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset][0]+ `<span class="accidental">${KeySignatures[selectedKey][i+offset][1]}</span>` + numerals[`numeral${i}`]["maj"][1]
       } else {
         document.querySelector(`.DC${i}`).innerHTML=KeySignatures[selectedKey][i+offset] + numerals[`numeral${i}`]["maj"][1]
-      } if (i === 2) {offset = -3}
+      } if (i === 7) {offset = 0}
       if (numerals[`numeral${i}`]["maj"][0][numerals[`numeral${i}`]["maj"][0].length-1] === "o") {
         superscript = numerals[`numeral${i}`]["maj"][0][numerals[`numeral${i}`]["maj"][0].length-1]
         document.querySelector(`.numeral${[i]}`).innerHTML=(`.HMnumeral${[i]}`).innerHTML=numerals[`numeral${i}`]["maj"][0].slice(0, numerals[`numeral${i}`]["maj"][0].length-1) + `<span class="accidental">${superscript}</span>`
