@@ -51,7 +51,7 @@ const numerals = {
   "numeral4": {"maj": ["IV", maj], "min": ["iv", min]},
   "numeral5": {"maj": ["V", maj], "min": ["v", min, "V", maj]},
   "numeral6": {"maj": ["vi", min], "min": ["VI", maj]},
-  "numeral7": {"maj": ["viio", dim], "min": ["VII", maj, `vii<span class="superscript">o</span>`, dim]},
+  "numeral7": {"maj": [`vii<span class="superscript">o</span>`, dim], "min": ["VII", maj, `vii<span class="superscript">o</span>`, dim]},
 }
 
 const keySignatures = {

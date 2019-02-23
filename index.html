@@ -5,46 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Prata" rel="stylesheet">
     <title>Classical Harmony</title>
 </head>
 <body>
     <section class="top">
-    <img src="classical_harmony.svg"><br>
-    <select onChange="updateKey()" id="keySelector">
-        <option value="C" selected>C</option>
-        <option value="F">F</option>
-        <option value="Bb">B♭</option>
-        <option value="Eb">E♭</option>
-        <option value="Ab">A♭</option>
-        <option value="Db">D♭</option>
-        <!-- <option value="keyGb">G♭</option> -->
-        <option value="F#">F♯</option>
-        <option value="B">B</option>
-        <option value="E">E</option>
-        <option value="A">A</option>
-        <option value="D">D</option>
-        <option value="G">G</option>
-    </select>
-
-    <select onChange="updateKey()" id="tonalitySelector">
-            <option value="maj" selected>Major</option>
-            <option value="min">Minor</option>
+    <img class="logo" src="classical_harmony.svg">
+    <div class= "options">
+        <select class="dropdown" onChange="updateKey()" id="keySelector">
+            <option value="C" selected>C</option>
+            <option value="F">F</option>
+            <option value="Bb">B♭</option>
+            <option value="Eb">E♭</option>
+            <option value="Ab">A♭</option>
+            <option value="Db">D♭</option>
+            <!-- <option value="keyGb">G♭</option> -->
+            <option value="F#">F♯</option>
+            <option value="B">B</option>
+            <option value="E">E</option>
+            <option value="A">A</option>
+            <option value="D">D</option>
+            <option value="G">G</option>
         </select>
 
-    <select onChange="updateClef()" id="clefSelector">
-        <option value="treble" selected>Treble Clef</option>
-        <option value="alto">Alto Clef</option>
-        <option value="tenor">Tenor Clef</option>
-        <option value="bass">Bass Clef</option>
-    </select>
-    
+        <select class="dropdown" onChange="updateKey()" id="tonalitySelector">
+                <option value="maj" selected>Major</option>
+                <option value="min">Minor</option>
+            </select>
+
+        <select class="dropdown" onChange="updateClef()" id="clefSelector">
+            <option value="treble" selected>Treble Clef</option>
+            <option value="alto">Alto Clef</option>
+            <option value="tenor">Tenor Clef</option>
+            <option value="bass">Bass Clef</option>
+        </select>
+    </div>
     <div id="staff"></div>
 </section>
     <div class="chords">
         <div class="diatonicChords">
             <div class="heading">
                 <h1>Diatonic Chords</h1>
-                <div class="showHideButton" id="DCshowHideButton">↓</div>
+                <div class="showHideButton" id="DCshowHideButton">
+                    <img src="arrow.svg">
+                </div>
             </div>
             <div class="DCs">
                 <div class= "chordChart">
@@ -113,8 +117,12 @@
 
         
         <div class="secondaryRominants">
-            <h1>Secondary Dominants</h1>
-            <div class="showHideButton" id="SDshowHideButton">↓</div>
+            <div class="heading">
+                <h1>Secondary Dominants</h1>
+                <div class="showHideButton" id="DCshowHideButton">
+                    <img src="arrow.svg">
+                </div>
+            </div>
             <div class="SDs">
                 <div class= "chordChart">
                     <div class="chordCell">
@@ -181,8 +189,12 @@
         </div>
 
         <div class="SubdominantSubstitutions">
-            <h1>Subdominant Substitutions</h1>
-            <div class="showHideButton" id="subdominantshowHideButton">↓</div>
+            <div class="heading">
+                <h1>Subdominant Substitutions</h1>
+                <div class="showHideButton" id="DCshowHideButton">
+                    <img src="arrow.svg">
+                </div>
+            </div>
             <div class="subdominants">
                 <div class= "chordChart">
                     <div class="chordCell SubdominantChordCell">
@@ -199,28 +211,28 @@
                     </div>
                     <div class="chordCell SubdominantChordCell">
                         <div>
-                            <h3 class="tone it61"></h3>
-                            <h3 class="tone it62"></h3>
-                            <h3 class="tone it63"></h3>
-                            <h3 class="tone it64"></h3>
+                            <div class="aug6tone"><h3 class="tone it61"></h3></div>
+                            <div class="aug6tone"><h3 class="tone it62"></h3></div>
+                            <div class="aug6tone"><h3 class="tone it63"></h3></div>
+                            <div class="aug6tone"><h3 class="tone it64"></h3></div>
                         </div>
                         <h3 class="numeral">It<span class="superscript">+6</span></h3>                  
                     </div>
                     <div class="chordCell SubdominantChordCell">
                         <div>
-                            <h3 class="tone fr61"></h3>
-                            <h3 class="tone fr62"></h3>
-                            <h3 class="tone fr63"></h3>
-                            <h3 class="tone fr64"></h3>
+                            <div class="aug6tone"><h3 class="tone fr61"></h3></div>
+                            <div class="aug6tone"><h3 class="tone fr62"></h3></div>
+                            <div class="aug6tone"><h3 class="tone fr63"></h3></div>
+                            <div class="aug6tone"><h3 class="tone fr64"></h3></div>
                         </div>
                         <h3 class="numeral">Fr<span class="superscript">+6</span></h3>                  
                     </div>
                     <div class="chordCell SubdominantChordCell">
                         <div>
-                            <h3 class="tone gr61"></h3>
-                            <h3 class="tone gr62"></h3>
-                            <h3 class="tone gr63"></h3>
-                            <h3 class="tone gr64"></h3>
+                            <div class="aug6tone"><h3 class="tone gr61"></h3></div>
+                            <div class="aug6tone"><h3 class="tone gr62"></h3></div>
+                            <div class="aug6tone"><h3 class="tone gr63"></h3></div>
+                            <div class="aug6tone"><h3 class="tone gr64"></h3></div>
                         </div>
                         <h3 class=numeral>Gr<span class="superscript">+6</span></h3>                  
                     </div>
@@ -233,8 +245,13 @@
         </div>
 
         <div class="ChromaticMediants">
+            <div class="heading">
                 <h1>Chromatic Mediants</h1>
-                <div class="showHideButton" id="CMshowHideButton">↓</div>
+                <div class="showHideButton" id="DCshowHideButton">
+                    <img src="arrow.svg">
+                </div>
+            </div>
+            </div>
                 <div class="CMs">
                     <div class= "chordChart">
                         <div class="chordCell CMChordCell">
