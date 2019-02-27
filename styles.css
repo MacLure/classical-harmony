@@ -3,7 +3,7 @@ body {
 }
 .all {
   max-width: 700px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .top {
@@ -91,8 +91,9 @@ h3 {
   text-align: center;
   transform: translateY(-5px);
   margin-left: 10px;
-
+  transition: transform 0.1s;
 }
+
 .showHideButton>img {
   vertical-align: middle;
   width: 70%;
@@ -159,6 +160,44 @@ h3 {
   transition: 0.5s;
 }
 
+.DCs {
+  max-height: 200px;
+  -webkit-transition: max-height 0.3s ease-in-out;
+	-moz-transition: max-height 0.3s ease-in-out;
+	transition: max-height 0.3s ease-in-out;
+  overflow: hidden
+}
+
+.SDs {
+  max-height: 200px;
+  -webkit-transition: max-height 0.3s ease-in-out;
+	-moz-transition: max-height 0.3s ease-in-out;
+	transition: max-height 0.3s ease-in-out;
+  overflow: hidden
+}
+
+.subdominants {
+  max-height: 200px;
+  -webkit-transition: max-height 0.3s ease-in-out;
+	-moz-transition: max-height 0.3s ease-in-out;
+	transition: max-height 0.3s ease-in-out;
+  overflow: hidden
+}
+
+.CMs {
+  max-height: 200px;
+  -webkit-transition: max-height 0.3s ease-in-out;
+	-moz-transition: max-height 0.3s ease-in-out;
+	transition: max-height 0.3s ease-in-out;
+  overflow: hidden
+}
+
 .hidden {
-  display: none;
+  max-height: 0px;
+}
+
+.rotateButton {
+  transform: rotate(-90deg) translateX(5px);
+  transition: transform 0.1s;
+
 }
