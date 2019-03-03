@@ -156,6 +156,7 @@ padding-top: 5px;
 
 .CMChordCell {
   height: 150px;
+  
 }
 
 .DCs .SDs .subdominants .CMs{
@@ -187,6 +188,11 @@ padding-top: 5px;
   overflow: hidden
 }
 
+.n6Placeholder {
+  height: 37px;
+
+}
+
 .CMs {
   max-height: 200px;
   -webkit-transition: max-height 0.3s ease-in-out;
@@ -197,6 +203,15 @@ padding-top: 5px;
 
 .CMChord {
   padding-top: 10px;
+}
+
+.CHChordPlaceholder {
+  padding-top: 10px;
+  height: 57px;
+}
+
+.CMBorder {
+  border-right: 1px solid grey;
 }
 
 .hidden {
