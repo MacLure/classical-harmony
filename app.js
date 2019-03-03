@@ -297,6 +297,10 @@ function showChromaticMediantsSDs() {
     document.querySelector(`.CSMSDVnumeral`).innerHTML = `V/<span class="accidental">♭</span>VI`
     document.querySelector(`.CSMSDVIIchord`).innerHTML = replaceAccidentals(sharpen(keySignatures[selectedKey][4])) + dim
     document.querySelector(`.CSMSDVIInumeral`).innerHTML = `vii<span class="superscript">o</span>/<span class="accidental">♭</span>VI`  
+
+    document.querySelector(`.SDofCMNumeral`).innerHTML = `<span class="accidental">♭</span>iii`  
+    document.querySelector(`.SDofCSMNumeral`).innerHTML = `<span class="accidental">♭</span>vi`  
+
   }
   if (selectedTonality === "min") {
     document.querySelector(`.CMSDVchord`).innerHTML = replaceAccidentals(sharpen(keySignatures[selectedKey][6])) + maj
@@ -308,6 +312,9 @@ function showChromaticMediantsSDs() {
     document.querySelector(`.CSMSDVnumeral`).innerHTML = `V/<span class="accidental">♯</span>VI`
     document.querySelector(`.CSMSDVIIchord`).innerHTML = replaceAccidentals(sharpen(keySignatures[selectedKey][4])) + dim
     document.querySelector(`.CSMSDVIInumeral`).innerHTML = `vii<span class="superscript">o</span>/<span class="accidental">♯</span>VI`  
+    document.querySelector(`.SDofCMNumeral`).innerHTML = `<span class="accidental">♯</span>III`  
+    document.querySelector(`.SDofCSMNumeral`).innerHTML = `<span class="accidental">♯</span>VI`  
+
   }
 }
 

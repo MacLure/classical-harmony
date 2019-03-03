@@ -212,6 +212,16 @@ padding-top: 5px;
 
 .CMBorder {
   border-right: 1px solid grey;
+  border-left: 1px solid grey;
+
+}
+
+.CMSDLabel {
+  position: absolute;
+  transform: translateX(10px) translateY(14px);
+  font-family: arial, sans-serif;
+  color: grey;
+  font-size: 0.9em;
 }
 
 .hidden {
