@@ -46,7 +46,7 @@ const aug = "<span class=chordQlty>aug</span>"
 
 const numerals = {
   "numeral1": {"maj": ["I", maj], "min": ["i", min]},
-  "numeral2": {"maj": ["ii", min], "min": ["iio", dim]},
+  "numeral2": {"maj": ["ii", min], "min": [`ii<span class="superscript">o</span>`, dim]},
   "numeral3": {"maj": ["iii", min], "min": ["III", maj, `III<span class="superscript">+</span>`, aug]},
   "numeral4": {"maj": ["IV", maj], "min": ["iv", min]},
   "numeral5": {"maj": ["V", maj], "min": ["v", min, "V", maj]},
