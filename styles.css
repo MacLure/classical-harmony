@@ -1,9 +1,12 @@
 body {
-  /* background-color: rgb(248, 248, 233) */
+  background-color: rgb(41, 46, 70)
 }
 .all {
   max-width: 700px;
-  margin: 20px auto;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+
 }
 
 .top {
@@ -107,7 +110,7 @@ h3 {
 .numeral {
   font-family: 'Prata', serif;
   color: grey;
-
+padding-top: 5px;
 }
 
 .tone {
@@ -190,6 +193,10 @@ h3 {
 	-moz-transition: max-height 0.3s ease-in-out;
 	transition: max-height 0.3s ease-in-out;
   overflow: hidden
+}
+
+.CMChord {
+  padding-top: 10px;
 }
 
 .hidden {
